@@ -13,7 +13,7 @@ Passo a passo direto para clonar o repositório e rodar a **Lumina Academy** loc
 
 ### 1. Clonar o repositório
 ```bash
-git clone <URL-DO-REPOSITORIO-NO-GITHUB>
+git clone https://github.com/AugustoMiotto/Lumina-Academy.git
 cd Lumina
 ```
 
