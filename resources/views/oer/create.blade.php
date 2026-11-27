@@ -4,7 +4,7 @@
 
 @section('content')
     <section aria-labelledby="create-oer-heading">
-        <div class="flex-between" style="margin-bottom: 1rem;">
+        <div class="flex-between mb-1">
             <h1 id="create-oer-heading">Publicar Recurso Educacional Aberto (OER)</h1>
             <a href="{{ route('oer.index') }}" class="btn btn-outline">Voltar ao Mural OER</a>
         </div>

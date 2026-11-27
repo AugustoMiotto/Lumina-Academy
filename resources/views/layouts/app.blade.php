@@ -66,7 +66,7 @@
         @if($errors->any())
             <div class="alert alert-error" role="alert">
                 <p><strong>Por favor, corrija os erros abaixo:</strong></p>
-                <ul style="margin-left: 1.25rem; margin-top: 0.25rem;">
+                <ul class="error-list">
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach

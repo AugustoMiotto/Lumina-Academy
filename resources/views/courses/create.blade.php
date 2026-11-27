@@ -4,7 +4,7 @@
 
 @section('content')
     <section aria-labelledby="create-course-heading">
-        <div class="flex-between" style="margin-bottom: 1rem;">
+        <div class="flex-between mb-1">
             <h1 id="create-course-heading">Publicar Nova Oferta de Curso / Mentoria</h1>
             <a href="{{ route('courses.index') }}" class="btn btn-outline">Voltar ao Catálogo</a>
         </div>
@@ -59,7 +59,7 @@
                 <input type="url" id="meeting_link" name="meeting_link" value="{{ old('meeting_link') }}" placeholder="https://meet.google.com/xxx-xxxx-xxx">
             </div>
 
-            <div style="margin-top: 1rem;">
+            <div class="mt-1">
                 <button type="submit" class="btn">Publicar Oferta</button>
             </div>
         </form>

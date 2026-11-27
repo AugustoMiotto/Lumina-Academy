@@ -3,8 +3,8 @@
 @section('title', 'Entrar — Lumina Academy')
 
 @section('content')
-    <section style="max-width: 480px; margin: 0 auto;" aria-labelledby="login-heading">
-        <h1 id="login-heading" style="margin-bottom: 1rem;">Acessar Conta</h1>
+    <section class="narrow" aria-labelledby="login-heading">
+        <h1 class="mb-1" id="login-heading">Acessar Conta</h1>
 
         <form action="{{ route('login.authenticate') }}" method="POST" class="card">
             @csrf
@@ -19,13 +19,13 @@
                 <input type="password" id="password" name="password" required autocomplete="current-password">
             </div>
 
-            <div style="margin: 0.75rem 0;">
-                <label style="font-weight: 400;">
+            <div class="my-075">
+                <label class="label-inline">
                     <input type="checkbox" name="remember" value="1"> Manter conectado neste dispositivo
                 </label>
             </div>
 
-            <button type="submit" class="btn" style="width: 100%;">Entrar</button>
+            <button type="submit" class="btn w-full">Entrar</button>
         </form>
     </section>
 @endsection

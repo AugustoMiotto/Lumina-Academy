@@ -4,7 +4,7 @@
 
 @section('content')
     <section aria-labelledby="oer-heading">
-        <div class="flex-between" style="margin-bottom: 1rem;">
+        <div class="flex-between mb-1">
             <h1 id="oer-heading">Repositório de Recursos Educacionais Abertos (OER)</h1>
             @auth
                 @if(auth()->user()->isMentor() || auth()->user()->isAdmin())
@@ -15,11 +15,11 @@
 
         <form action="{{ route('oer.index') }}" method="GET" class="card" aria-label="Buscar materiais OER">
             <div class="flex-row">
-                <div class="form-group" style="margin-bottom: 0;">
+                <div class="form-group mb-0">
                     <label for="search">Buscar por título ou tema</label>
                     <input type="text" id="search" name="search" value="{{ $search ?? '' }}" placeholder="Apostilas, guias, artigos livres...">
                 </div>
-                <div style="align-self: flex-end;">
+                <div class="align-end">
                     <button type="submit" class="btn">Buscar</button>
                 </div>
             </div>
@@ -36,9 +36,9 @@
                     @endif
                 </div>
 
-                <p style="margin: 0.5rem 0;">{{ $material->description }}</p>
+                <p class="my-05">{{ $material->description }}</p>
 
-                <div class="flex-between" style="font-size: 0.9rem;">
+                <div class="flex-between text-sm">
                     <span>
                         <strong>Publicado por:</strong> {{ $material->uploader->name }}
                         @if($material->uploader->verified_credentials)
@@ -54,7 +54,7 @@
             </div>
         @endforelse
 
-        <div style="margin-top: 1rem;">
+        <div class="mt-1">
             {{ $materials->links() }}
         </div>
     </section>
