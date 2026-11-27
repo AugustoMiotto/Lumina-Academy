@@ -4,7 +4,7 @@
 
 @section('content')
     <section aria-labelledby="catalog-heading">
-        <div class="flex-between" style="margin-bottom: 1rem;">
+        <div class="flex-between mb-1">
             <h1 id="catalog-heading">Ofertas de Cursos e Mentorias</h1>
             @if(auth()->user()->isMentor() || auth()->user()->isAdmin())
                 <a href="{{ route('mentor.courses.create') }}" class="btn">+ Nova Oferta</a>
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="flex-row" style="margin-top: 0.5rem;">
+            <div class="flex-row mt-05">
                 <button type="submit" class="btn">Filtrar Ofertas</button>
                 <a href="{{ route('courses.index') }}" class="btn btn-outline">Limpar Filtros</a>
             </div>
@@ -61,9 +61,9 @@
                     </div>
                 </div>
 
-                <p style="margin: 0.5rem 0;">{{ $course->description }}</p>
+                <p class="my-05">{{ $course->description }}</p>
 
-                <div class="flex-between" style="margin-top: 0.75rem; font-size: 0.9rem;">
+                <div class="flex-between mt-1 text-sm">
                     <div>
                         <strong>Mentor(a):</strong> {{ $course->mentor->name }}
                         @if($course->mentor->verified_credentials)
@@ -93,7 +93,7 @@
         @endforelse
 
         {{-- Paginação Servidor do Laravel --}}
-        <div style="margin-top: 1rem;">
+        <div class="mt-1">
             {{ $courses->links() }}
         </div>
     </section>

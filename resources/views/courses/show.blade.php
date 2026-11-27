@@ -14,13 +14,13 @@
                 </div>
             </div>
 
-            <p style="margin: 1rem 0;">{{ $course->description }}</p>
+            <p class="my-1">{{ $course->description }}</p>
 
             @if($course->benefits)
-                <p style="margin-bottom: 1rem;"><strong>Benefícios:</strong> {{ $course->benefits }}</p>
+                <p class="mb-1"><strong>Benefícios:</strong> {{ $course->benefits }}</p>
             @endif
 
-            <div class="flex-between" style="border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+            <div class="flex-between divider-top">
                 <div>
                     <strong>Mentor(a):</strong> {{ $course->mentor->name }}
                     @if($course->mentor->education_level)
@@ -43,14 +43,14 @@
 
             {{-- RF06 - Link da Sessão Virtual --}}
             @if($course->meeting_link)
-                <div style="margin-top: 1rem; padding: 0.75rem; background-color: var(--bg-surface); border: 1px solid var(--border-color);">
+                <div class="info-box">
                     <strong>Sessão Virtual Síncrona (RF06):</strong>
                     <a href="{{ $course->meeting_link }}" target="_blank" rel="noopener noreferrer">{{ $course->meeting_link }}</a>
                 </div>
             @endif
 
             {{-- RF11 - Solicitar emissão de certificado (se concluído) --}}
-            <div style="margin-top: 1rem;" class="flex-row">
+            <div class="flex-row mt-1">
                 <form action="{{ route('courses.certificates.store', $course) }}" method="POST">
                     @csrf
                     <input type="hidden" name="type" value="certificate">
@@ -61,9 +61,9 @@
 
         {{-- RF08 / RF09 - Materiais Educacionais Abertos (OER) do Curso --}}
         <section class="card" aria-labelledby="oer-course-heading">
-            <h2 id="oer-course-heading" style="margin-bottom: 0.75rem;">Materiais Educacionais Abertos (OER) do Curso</h2>
+            <h2 class="mb-075" id="oer-course-heading">Materiais Educacionais Abertos (OER) do Curso</h2>
             @forelse($course->oerMaterials as $material)
-                <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">
+                <div class="list-item">
                     <strong>{{ $material->title }}</strong> — {{ $material->description }}
                     <div>
                         <a href="{{ $material->file_path_or_url }}" target="_blank" rel="noopener noreferrer">Acessar Recurso</a>
@@ -76,9 +76,9 @@
 
         {{-- RF13 - Coautorias de Projetos Reconhecidas --}}
         <section class="card" aria-labelledby="coauthorship-heading">
-            <h2 id="coauthorship-heading" style="margin-bottom: 0.75rem;">Reconhecimento Mútuo de Coautoria (RF13)</h2>
+            <h2 class="mb-075" id="coauthorship-heading">Reconhecimento Mútuo de Coautoria (RF13)</h2>
             @forelse($course->coauthorships as $coauthorship)
-                <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">
+                <div class="list-item">
                     <strong>Coautor(a):</strong> {{ $coauthorship->coauthor->name }}
                     <p>{{ $coauthorship->contribution_description }}</p>
                 </div>
@@ -87,7 +87,7 @@
             @endforelse
 
             @if(auth()->id() === $course->mentor_id || auth()->user()->isAdmin())
-                <form action="{{ route('mentor.courses.coauthorships.store', $course) }}" method="POST" style="margin-top: 1rem;">
+                <form class="mt-1" action="{{ route('mentor.courses.coauthorships.store', $course) }}" method="POST">
                     @csrf
                     <h3>Registrar Coautoria de Aprendiz</h3>
                     <div class="flex-row">
@@ -107,9 +107,9 @@
 
         {{-- RF10 - Avaliações e Comentários --}}
         <section class="card" aria-labelledby="evaluations-heading">
-            <h2 id="evaluations-heading" style="margin-bottom: 0.75rem;">Avaliações do Curso (RF10)</h2>
+            <h2 class="mb-075" id="evaluations-heading">Avaliações do Curso (RF10)</h2>
 
-            <form action="{{ route('courses.evaluations.store', $course) }}" method="POST" style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border-color);">
+            <form class="form-divider" action="{{ route('courses.evaluations.store', $course) }}" method="POST">
                 @csrf
                 <div class="flex-row">
                     <div class="form-group">
@@ -141,13 +141,13 @@
             </form>
 
             @forelse($course->evaluations as $evaluation)
-                <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">
+                <div class="list-item">
                     <div class="flex-between">
                         <strong>{{ $evaluation->user->name }}</strong>
                         <span class="badge">Nota: {{ $evaluation->rating }}/5</span>
                     </div>
                     @if($evaluation->comment)
-                        <p style="margin-top: 0.25rem;">{{ $evaluation->comment }}</p>
+                        <p class="mt-025">{{ $evaluation->comment }}</p>
                     @endif
                 </div>
             @empty

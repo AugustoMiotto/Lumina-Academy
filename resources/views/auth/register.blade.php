@@ -3,8 +3,8 @@
 @section('title', 'Criar Conta — Lumina Academy')
 
 @section('content')
-    <section style="max-width: 600px; margin: 0 auto;" aria-labelledby="register-heading">
-        <h1 id="register-heading" style="margin-bottom: 1rem;">Criar Conta na Lumina Academy</h1>
+    <section class="narrow narrow-lg" aria-labelledby="register-heading">
+        <h1 class="mb-1" id="register-heading">Criar Conta na Lumina Academy</h1>
 
         <form action="{{ route('register.store') }}" method="POST" class="card">
             @csrf
@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn" style="width: 100%; margin-top: 0.5rem;">Concluir Cadastro</button>
+            <button type="submit" class="btn w-full mt-05">Concluir Cadastro</button>
         </form>
     </section>
 @endsection
